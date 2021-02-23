@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('blogs','BlogController');
+Route::resource('images','ImageController');
 
 Route::get('/test/env', function () {
     dd(env('DB_PASSWORD')); // dump db variable value one by one
