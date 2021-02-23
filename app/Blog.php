@@ -10,8 +10,8 @@ class Blog extends Model
         'title', 'description'
       ];
       
-public function posts() 
+public function images() 
 {
-    return $this->hasMany('App\Post');
+    return $this->hasMany(Image::class);
 }
 }

@@ -25,8 +25,8 @@
 
       <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Title</th>
+            <th>Name</th>
+            <th>Path</th>
             
         </tr>
         @foreach ($images as $image)

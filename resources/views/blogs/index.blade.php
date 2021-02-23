@@ -2,7 +2,7 @@
  
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-lg-12 mb-2">
             <div class="pull-left">
                 <h2>Check all Blogs</h2>
             </div>
@@ -19,7 +19,7 @@
             <th>No</th>
             <th>Title</th>
             <th>Description</th>
-            <th width="250px">Action</th>
+            <th width="350px">Action</th>
         </tr>
         @foreach ($blogs as $blog)
         <tr>
@@ -30,7 +30,7 @@
                 <form action="{{ route('blogs.destroy',$blog->id) }}" method="POST">
    
                     <a class="btn btn-info" href="{{ route('blogs.show',$blog->id) }}">Show</a>
-    <a class="btn btn-info" href="{{ route('images.index',$blog->id) }}">Gallery</a>
+    <a class="btn btn-info" href="{{ route('ImagesIndex',$blog->id) }}">Gallery</a>
                     <a class="btn btn-primary" href="{{ route('blogs.edit',$blog->id) }}">Edit</a>
    
                     @csrf

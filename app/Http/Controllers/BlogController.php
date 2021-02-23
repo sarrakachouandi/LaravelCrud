@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
   
 use App\Blog;
+use App\Image;
 use Illuminate\Http\Request;
   
 class BlogController extends Controller
@@ -59,7 +60,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        return view('blogs.show',compact('blog')); //http://127.0.0.1:8000/blogs/1 bech affichi blog 1
+        $images = Image::where('blog_id',$blog->id)->get();
+        return view('blogs.show',compact('blog','images')); //http://127.0.0.1:8000/blogs/1 bech affichi blog 1
         //compact= array (blog=>$blog)                                          
     }
    

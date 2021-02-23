@@ -25,4 +25,21 @@
             </div>
         </div>
     </div>
+    <table class="table table-bordered">
+        <tr>    
+            <th>Name</th>
+            <th>Path</th>
+            
+        </tr>
+        @foreach ($images as $image)
+        <tr>
+            
+            <td>{{ $image->name }}</td>
+            <td>{{ $image->path }}</td>
+            
+            
+          
+        </tr>
+        @endforeach
+    </table>
 @endsection
