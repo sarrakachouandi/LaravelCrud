@@ -21,7 +21,7 @@ class CreateImagesTable extends Migration
 			$table->foreign('blog_id')
 				  ->references('id')
 				  ->on('blogs')
-				  ->onDelete('restrict')
+				  ->onDelete('cascade')
 				  ->onUpdate('restrict');
             $table->timestamps();
         });

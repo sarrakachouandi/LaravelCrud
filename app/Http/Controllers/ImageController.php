@@ -10,18 +10,20 @@ class ImageController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function index(Blog $blog)
+    public function index( $id)
     {
-        dd($blog);
+        //dd($blog);
+        // $blog=Blog::where('id',$id)->first(); 
+
         // $images = Image::where('blog_id', '=', 1)->get(); 
-        $images = DB::table('images')
-                ->where('blog_id', '=', 1)
-                ->get();
-                // dd($images);
+        $images = Image::where('blog_id',$id)->get();
+        //dd($images);
+      
         return view('images.index',compact('images')); 
+
         
   
         

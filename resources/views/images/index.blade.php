@@ -22,11 +22,10 @@
             </div>
         </div>
     </div>
-
-      <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>Title</th>
+    <table class="table table-bordered">
+        <tr>    
+            <th>Name</th>
+            <th>Path</th>
             
         </tr>
         @foreach ($images as $image)

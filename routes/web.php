@@ -18,8 +18,11 @@ Route::get('/', function () {
 });
 
 Route::resource('blogs','BlogController');
-Route::resource('images','ImageController');
+// Route::resource('images','ImageController');
+Route::Get('/images/{id}','ImageController@index')->name('ImagesIndex');
 
-Route::get('/test/env', function () {
+
+
+/*Route::get('/test/env', function () {
     dd(env('DB_PASSWORD')); // dump db variable value one by one
-});
+});*/

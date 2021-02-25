@@ -30,7 +30,7 @@
                 <form action="{{ route('blogs.destroy',$blog->id) }}" method="POST">
    
                     <a class="btn btn-info" href="{{ route('blogs.show',$blog->id) }}">Show</a>
-    <a class="btn btn-info" href="{{ route('images.index',$blog->id) }}">Gallery</a>
+       <a class="btn btn-info" href="{{ route('ImagesIndex',$blog->id) }}">Gallery</a>
                     <a class="btn btn-primary" href="{{ route('blogs.edit',$blog->id) }}">Edit</a>
    
                     @csrf

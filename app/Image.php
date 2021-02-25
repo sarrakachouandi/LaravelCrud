@@ -8,9 +8,10 @@ class Image extends Model
 {
         protected $fillable = ['name','path','blog_id'];
 
-    public function blogs() 
+    public function blog() 
 	{
-		return $this->belongsTo('App\Blog');
+	//return $this->belongsTo('App\Blog');
+		return $this->belongsTo(Blog::class, 'blog_id', 'id');
 	}
 
 }

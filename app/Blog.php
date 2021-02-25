@@ -12,6 +12,6 @@ class Blog extends Model
       
 public function posts() 
 {
-    return $this->hasMany('App\Post');
+    return $this->hasMany(Image::class);
 }
 }
