@@ -5,6 +5,7 @@ use App\Image;
 use App\Blog;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -16,19 +17,56 @@ class ImageController extends Controller
     public function index( $id)
     {
         
-        // $blog=Blog::where('id',$id)->first(); 
+        $blog=Blog::where('id',$id)->first(); 
 
         // $images = Image::where('blog_id', '=', 1)->get(); 
         $images = Image::where('blog_id',$id)->get();
         // dd($images);
       
                 // dd($images);
-        return view('images.index',compact('images')); 
+        return view('images.index',compact('images','blog')); 
 
         
   
         
     }
+
+    public function imageUpload()
+    {
+        return view('images.imageUpload');
+    }
+  
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function imageUploadPost(Request $request, $id)
+    {
+        if ($request->hasFile('image')) {
+            //  Let's do everything here
+            if ($request->file('image')->isValid()) {
+                //
+                $validated = $request->validate([
+                    'name' => 'string|max:40',
+                    'image' => 'mimes:jpeg,png|max:1014',
+                ]);
+                $extension = $request->image->extension();
+                $request->image->storeAs('/public', $validated['name'].".".$extension);
+                $url = Storage::url($validated['name'].".".$extension);
+                $file = Image::create([
+                   'name' => $validated['name'],
+                    'path' => $url,
+                    'blog_id'=> $id,
+                ]);
+            }
+   
+        return back()
+            ->with('success','You have successfully upload image.');
+        
+   
+    }
+}
 
     /**
      * Show the form for creating a new resource.

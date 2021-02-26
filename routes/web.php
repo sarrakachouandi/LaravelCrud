@@ -22,6 +22,9 @@ Route::resource('blogs','BlogController');
 Route::Get('/images/{id}','ImageController@index')->name('ImagesIndex');
 
 
-Route::get('/test/env', function () {
-    dd(env('DB_PASSWORD')); // dump db variable value one by one
-});
+// Route::get('/test/env', function () {
+//     dd(env('DB_PASSWORD')); // dump db variable value one by one
+// });
+
+Route::get('image-upload', 'ImageController@imageUpload')->name('image.upload');
+Route::post('images/{id}', 'ImageController@imageUploadPost')->name('image.upload.post');
