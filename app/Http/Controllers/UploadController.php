@@ -1,33 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Image;
-use App\Blog;
-use DB;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class ImageController extends Controller
+use Illuminate\Http\Request;
+
+class UploadController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index( $id)
+    public function index()
     {
-        //dd($blog);
-        // $blog=Blog::where('id',$id)->first(); 
-         $blog=Blog::where('id',$id)->first(); 
-        // $images = Image::where('blog_id', '=', 1)->get(); 
-        $images = Image::where('blog_id',$id)->get();
-        //dd($images);
-      
-       return view('images.index',compact('images','blog'));
-
-        
-  
-        
+        return view('/Upload'); 
     }
 
     /**
@@ -59,7 +45,7 @@ class ImageController extends Controller
      */
     public function show($id)
     {
-        //
+      
     }
 
     /**
@@ -95,10 +81,10 @@ class ImageController extends Controller
     {
         //
     }
-    
-   
 
-     public function imageUploadPost(Request $request, $id)
+ 
+
+     public function uploadFile(Request $request, $id)
     {
        // $req->file->store('images');
         
@@ -125,3 +111,10 @@ class ImageController extends Controller
         }
     }
 }
+/*if ($request->file('images') == null) {
+    $file = "";
+}else{
+   $file = $request->file('images')->store('images');  
+dd( $request->File('image'));
+}*/
+
